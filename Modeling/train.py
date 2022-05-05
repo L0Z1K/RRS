@@ -17,6 +17,12 @@ from transformers import BertTokenizerFast
 from torch.utils.data import Dataset, DataLoader, random_split
 from dotenv import load_dotenv
 
+load_dotenv(verbose=True)
+
+NUM_LABELS = int(os.getenv("NUM_LABELS", 100))
+CKPT_DIR = os.getenv("CKPT_DIR", "model_chp")
+LOGS_DIR = os.getenv("LOGS_DIR", "tb_logs")
+
 
 class ArgsBase:
     @staticmethod
@@ -102,7 +108,7 @@ class FoodDataModule(pl.LightningDataModule):
         # split dataset
         REVIEW_JSON = os.path.join("REVIEW_JSON", "../DataCrawling/data/review.json")
         dataset = FoodDataset(REVIEW_JSON)
-        TRAIN_VAL_SPLIT = os.path.join("TRAIN_VAL_SPLIT", 0.8)
+        TRAIN_VAL_SPLIT = float(os.path.join("TRAIN_VAL_SPLIT", 0.8))
         train_size = int(len(dataset) * TRAIN_VAL_SPLIT)
         test_size = len(dataset) - train_size
         self.train, self.test = random_split(
@@ -243,11 +249,6 @@ class KoGPTClassification(Classification):
 
 
 if __name__ == "__main__":
-    load_dotenv(verbose=True)
-
-    NUM_LABELS = os.getenv("NUM_LABELS", 100)
-    CKPT_DIR = os.get("CKPT_DIR", "model_chp")
-    LOGS_DIR = os.get("LOGS_DIR", "tb_logs")
     parser = argparse.ArgumentParser(description="subtask for KoBART")
     parser.add_argument(
         "--cachedir", type=str, default=os.path.join(os.getcwd(), ".cache")

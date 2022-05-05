@@ -12,7 +12,9 @@ This is a toy project for [DevKor](https://github.com/DevKor-Team) Mini-Web Hack
 
 🚨 I'm very bad at Web Development. So I focus on recommender system and my Streamlit did all of front-end.
 
-My AI Model trained with a lot of reviews of restaurant near by Korea University. When you give some query to my AI Model, it returns to you a list of restaurants you will love.
+My AI Model trained with a lot of reviews of restaurant near by Korea University.
+
+When you give some query to my AI Model, it returns to you a list of restaurants you will love.
 
 ## Step
 
@@ -21,5 +23,20 @@ My AI Model trained with a lot of reviews of restaurant near by Korea University
 - Step2 : [Modeling](Modeling/)
 
 - Step3 : Inference with `server.py`.
+
+```bash
+$ streamlit run server.py
+```
+
+### Environments
+
+```bash
+NUM_LABELS=100
+IMAGE_PATH="./DataCrawling/data/image.json"
+RESTAURANT_PATH="./DataCrawling/data/restaurant.json"
+CKPT_PATH=****
+```
+
+### Result
 
 
