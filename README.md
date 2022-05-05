@@ -10,7 +10,16 @@
 
 This is a toy project for [DevKor](https://github.com/DevKor-Team) Mini-Web Hackathon 👨‍💻.
 
-I'm very bad at Web Development so I focus on recommender system and my Streamlit did all of front-end.
+🚨 I'm very bad at Web Development. So I focus on recommender system and my Streamlit did all of front-end.
 
-### Step
+My AI Model trained with a lot of reviews of restaurant near by Korea University. When you give some query to my AI Model, it returns to you a list of restaurants you will love.
+
+## Step
+
+- Step1 : [Data Crawling](DataCrawling/)
+
+- Step2 : [Modeling](Modeling/)
+
+- Step3 : Inference with `server.py`.
+
 
